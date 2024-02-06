@@ -5,7 +5,6 @@ import { getLatestArticles, getCategories } from "../api";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import NavBar from "./NavBar";
 
 const CategoriesManager = () => {
   const [categoryList, setCategoryList] = useState([]);
@@ -25,22 +24,20 @@ const CategoriesManager = () => {
     <>
       <div className="categories-manager">
         <Row>
-          <Col xs="auto" className="d-flex justify-content-center">
-            <h3>Latest News</h3>
-          </Col>
           <Col xs="auto">
-            <Nav variant="underline">
-              <Nav.Item>
-                <Nav.Link
-                  onClick={() => {
-                    setSeeAllToggle(true);
-                    setCurrentCategory([]);
-                  }}
-                >
-                  See All
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
+            <h4>Latest News</h4>
+          </Col>
+          <Col>
+            <Nav.Item>
+              <Nav.Link
+                onClick={() => {
+                  setSeeAllToggle(true);
+                  setCurrentCategory([]);
+                }}
+              >
+                See All
+              </Nav.Link>
+            </Nav.Item>
           </Col>
         </Row>
 
@@ -48,7 +45,7 @@ const CategoriesManager = () => {
           {categoryList.map((category, index) => {
             return (
               <Col xs="auto" key={index}>
-                <Nav variant="underline">
+                <Nav variant="underline" defaultActiveKey="/home">
                   <Nav.Link
                     variant="light"
                     value={currentCategory}

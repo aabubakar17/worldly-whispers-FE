@@ -49,12 +49,3 @@ export function getCategories() {
       return topics;
     });
 }
-
-export function getArticleByID(articleID) {
-  return axios
-    .get(`https://worldywhisper.onrender.com/api/articles/${articleID}`)
-    .then((response) => {
-      const { article } = response.data;
-      return article;
-    });
-}

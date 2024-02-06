@@ -1,19 +1,8 @@
 import NavBar from "./NavBar";
-import Homepage from "./Homepage";
 import Header from "./Header";
 import Hero from "./Hero";
 import SearchManager from "./SearchManager";
 import CategoriesManager from "./CategoriesManager";
-import ArticlePage from "./ArticlePage";
 import Footer from "./Footer";
 
-export {
-  Header,
-  NavBar,
-  Homepage,
-  Hero,
-  SearchManager,
-  CategoriesManager,
-  ArticlePage,
-  Footer,
-};
+export { Header, NavBar, Hero, SearchManager, CategoriesManager, Footer };

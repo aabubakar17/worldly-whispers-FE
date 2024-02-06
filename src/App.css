@@ -43,8 +43,8 @@
 
 .trending-grid {
   display: grid;
-  grid-template-columns: fit-content(repeat(2, 1fr));
-  grid-template-rows: fit-content((2, 1fr));
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   justify-content: center;
 }
 .trending-card-container {
@@ -85,13 +85,6 @@
   margin: 1rem;
 }
 
-.categories-manager {
-  margin: 2rem;
-}
-
-.search-manager {
-  margin: 2rem;
-}
 @media (min-width: 1024px) {
   .trending-grid {
     grid-template-columns: repeat(4, auto);
@@ -99,7 +92,7 @@
   }
   .article-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: none;
     justify-content: center;
   }
