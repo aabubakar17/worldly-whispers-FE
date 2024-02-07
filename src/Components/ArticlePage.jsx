@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { getArticleByID, getLatestArticles } from "../api";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
+import CommentManager from "./CommentManager";
 
 const ArticlePage = () => {
   const [currentArticle, setCurrentArticle] = useState(null);
   const { articleId } = useParams();
-  console.log(articleId);
   useEffect(() => {
     {
       getArticleByID(articleId).then((article) => {
@@ -23,6 +23,8 @@ const ArticlePage = () => {
       ) : (
         <Loading />
       )}
+
+      <CommentManager articleId={articleId} />
     </div>
   );
 };

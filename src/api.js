@@ -58,3 +58,14 @@ export function getArticleByID(articleID) {
       return article;
     });
 }
+
+export function getCommentsByID(articleID) {
+  return axios
+    .get(
+      `https://worldywhisper.onrender.com/api/articles/${articleID}/comments`
+    )
+    .then((response) => {
+      const { comments } = response.data;
+      return comments;
+    });
+}

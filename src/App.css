@@ -92,6 +92,33 @@
 .search-manager {
   margin: 2rem;
 }
+
+.article-sec {
+  margin-bottom: 1rem;
+}
+.commentList-container {
+  margin: 2rem;
+}
+.avatar-img {
+  width: 50px;
+  padding: 0.5rem;
+}
+.comment-header {
+  display: block;
+}
+.voteIcon-img {
+  width: 35px;
+  padding: 0.5rem;
+  mix-blend-mode: multiply;
+  border: none;
+}
+.votes {
+  float: inline-end;
+}
+.votes-text {
+  font-size: large;
+}
+
 @media (min-width: 1024px) {
   .trending-grid {
     grid-template-columns: repeat(4, auto);
