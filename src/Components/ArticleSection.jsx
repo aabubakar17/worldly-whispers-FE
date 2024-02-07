@@ -5,9 +5,8 @@ import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 const ArticleSection = ({ currentArticle }) => {
-  console.log(currentArticle);
   return (
-    <div>
+    <div className="article-sec">
       <Container fluid>
         <ArticleHeader title={currentArticle.title} />
         <Row>
