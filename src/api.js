@@ -69,3 +69,12 @@ export function getCommentsByID(articleID) {
       return comments;
     });
 }
+
+export function patchVoteByArticleID(articleID, newVote) {
+  return axios.patch(
+    `https://worldywhisper.onrender.com/api/articles/${articleID}`,
+    {
+      inc_votes: 1,
+    }
+  );
+}

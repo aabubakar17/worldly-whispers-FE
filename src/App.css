@@ -107,7 +107,7 @@
   display: block;
 }
 .voteIcon-img {
-  width: 35px;
+  width: 40px;
   padding: 0.5rem;
   mix-blend-mode: multiply;
   border: none;
@@ -115,8 +115,27 @@
 .votes {
   float: inline-end;
 }
+.article-votes {
+  margin-top: 10px;
+}
+
+.vote-button:hover {
+  background-color: rgb(204, 0, 255);
+}
+.article-voteIcon-img {
+  width: 40px;
+  mix-blend-mode: multiply;
+  border: none;
+}
+
 .votes-text {
   font-size: large;
+  padding: 0.5rem;
+}
+
+.article-votes-text {
+  font-size: x-large;
+  padding: 0.5rem;
 }
 
 @media (min-width: 1024px) {
