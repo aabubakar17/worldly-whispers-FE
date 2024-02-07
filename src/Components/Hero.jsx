@@ -27,6 +27,7 @@ const Hero = () => {
               article_title={trendArticle.title}
               author={trendArticle.author}
               date={trendArticle.created_at}
+              article={trendArticle}
               isInHero={isInHero}
               index={index}
             />

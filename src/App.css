@@ -22,7 +22,7 @@
 }
 
 .article-card-container {
-  width: 20rem;
+  width: 18rem;
   border-radius: 1rem;
   box-shadow: 0px 10px 8px #999;
   display: flex;
@@ -48,8 +48,8 @@
   justify-content: center;
 }
 .trending-card-container {
-  width: auto;
-  height: auto;
+  width: grid(100%);
+  height: auto-fit;
   border-radius: 1rem;
   box-shadow: 0px 10px 8px #999;
   display: flex;
