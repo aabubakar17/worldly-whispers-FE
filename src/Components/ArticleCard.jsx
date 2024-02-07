@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
 import * as dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { Container } from "react-bootstrap";
+
 const ArticleCard = ({
   index,
   articleImg,
   article_title,
   author,
+  article,
   date,
   isInHero,
 }) => {
   dayjs.extend(relativeTime);
+
   return (
     <>
       {isInHero ? (
@@ -18,24 +24,44 @@ const ArticleCard = ({
             index === 0 ? "trending-card-container" : "article-card-container"
           }
         >
-          <img
-            className="article-img"
-            src={articleImg}
-            alt={`picture of ${article_title}`}
-          />
-          <h4 className="article-title">{article_title}</h4>
-          <p>Author: {author}</p>
-          <p>Date: {dayjs(date.split("T")).fromNow(true)} ago</p>
+          <Nav variant="underline" className="justify-content-center">
+            <Nav.Item>
+              <Nav.Link as={Link} to={`/article/${article.article_id}`}>
+                <img
+                  className="article-img"
+                  src={articleImg}
+                  alt={`picture of ${article_title}`}
+                />
+
+                <h4 className="article-title">{article_title}</h4>
+
+                <p>Author: {author}</p>
+                <p>Date: {dayjs(date.split("T")).fromNow(true)} ago</p>
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
         </div>
       ) : (
-        <div className="article-card-container">
-          <img
-            className="article-img"
-            src={articleImg}
-            alt={`picture of ${article_title}`}
-          />
-          <h4>{article_title}</h4>
-        </div>
+        <Container fluid>
+          <div className="article-card-container">
+            <Nav variant="underline" className="justify-content-center">
+              <Nav.Item>
+                <Nav.Link as={Link} to={`/article/${article.article_id}`}>
+                  <img
+                    className="article-img"
+                    src={articleImg}
+                    alt={`picture of ${article_title}`}
+                  />
+
+                  <h4 className="article-title">{article_title}</h4>
+
+                  <p>Author: {author}</p>
+                  <p>Date: {dayjs(date.split("T")).fromNow(true)} ago</p>
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </div>{" "}
+        </Container>
       )}
     </>
   );

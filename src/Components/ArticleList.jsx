@@ -13,6 +13,7 @@ const ArticleList = ({ articles, children }) => {
               article_title={article.title}
               author={article.author}
               date={article.created_at}
+              article={article}
             />
           ))
         ) : (
@@ -28,6 +29,7 @@ const ArticleList = ({ articles, children }) => {
               article_title={article.title}
               author={article.author}
               date={article.created_at}
+              article={article}
             />
           ))
       ) : (
