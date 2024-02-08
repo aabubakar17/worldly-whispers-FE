@@ -16,7 +16,7 @@ import "./App.css";
 function App() {
   const [clickedArticle, setClickedArticle] = useState(null);
   return (
-    <>
+    <div className="app-container">
       <NavBar />
 
       <div className="main-content">
@@ -30,7 +30,7 @@ function App() {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

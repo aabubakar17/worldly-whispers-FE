@@ -25,7 +25,10 @@ const CommentManager = ({ articleId }) => {
         setCommentRecord={setCommentRecord}
       />
       {commentsRecord ? (
-        <CommentList commentsRecord={commentsRecord} />
+        <CommentList
+          setCommentRecord={setCommentRecord}
+          commentsRecord={commentsRecord}
+        />
       ) : (
         <Loading />
       )}

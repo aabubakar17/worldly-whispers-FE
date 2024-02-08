@@ -16,24 +16,28 @@ const PostComment = ({ articleId, commentsRecord, setCommentRecord }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setCommentRecord((currentComments) => {
-      return [commentToPost, ...currentComments];
-    });
-    setCommentToPost({
-      body: "",
-      author: "tickle122",
-      votes: 0,
-    });
-    postComment(articleId, commentToPost)
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-        setCommentRecord(commentsRecord);
-
-        setShowModal(true);
+    if (commentToPost.body === "") {
+      setShowModal(true);
+    } else {
+      setCommentRecord((currentComments) => {
+        return [commentToPost, ...currentComments];
       });
+      setCommentToPost({
+        body: "",
+        author: "tickle122",
+        votes: 0,
+      });
+      postComment(articleId, commentToPost)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+          setCommentRecord(commentsRecord);
+
+          setShowModal(true);
+        });
+    }
   }
   const handleCloseModal = () => {
     setShowModal(false);
