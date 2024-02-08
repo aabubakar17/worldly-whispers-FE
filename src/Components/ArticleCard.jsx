@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import * as dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -19,48 +20,60 @@ const ArticleCard = ({
   return (
     <>
       {isInHero ? (
-        <div
+        <Card
           className={
-            index === 0 ? "trending-card-container" : "article-card-container"
+            index === 0
+              ? "trending-card-container card-container"
+              : "article-card-container card-container"
           }
         >
           <Nav variant="underline" className="justify-content-center">
             <Nav.Item>
               <Nav.Link as={Link} to={`/article/${article.article_id}`}>
-                <img
+                <Card.Img
                   className="article-img"
+                  variant="top"
                   src={articleImg}
                   alt={`picture of ${article_title}`}
                 />
-
-                <h4 className="article-title">{article_title}</h4>
-
-                <p>Author: {author}</p>
-                <p>Date: {dayjs(date.split("T")).fromNow(true)} ago</p>
+                <Card.Body>
+                  <Card.Title className="article-title">
+                    {article_title}
+                  </Card.Title>
+                  <Card.Text>Author: {author}</Card.Text>
+                  <Card.Text>
+                    Date: {dayjs(date.split("T")).fromNow(true)} ago
+                  </Card.Text>
+                </Card.Body>
               </Nav.Link>
             </Nav.Item>
           </Nav>
-        </div>
+        </Card>
       ) : (
         <Container fluid>
-          <div className="article-card-container">
+          <Card>
             <Nav variant="underline" className="justify-content-center">
               <Nav.Item>
                 <Nav.Link as={Link} to={`/article/${article.article_id}`}>
-                  <img
+                  <Card.Img
                     className="article-img"
+                    variant="top"
                     src={articleImg}
                     alt={`picture of ${article_title}`}
                   />
-
-                  <h4 className="article-title">{article_title}</h4>
-
-                  <p>Author: {author}</p>
-                  <p>Date: {dayjs(date.split("T")).fromNow(true)} ago</p>
+                  <Card.Body>
+                    <Card.Title className="article-title">
+                      {article_title}
+                    </Card.Title>
+                    <Card.Text>Author: {author}</Card.Text>
+                    <Card.Text>
+                      Date: {dayjs(date.split("T")).fromNow(true)} ago
+                    </Card.Text>
+                  </Card.Body>
                 </Nav.Link>
               </Nav.Item>
             </Nav>
-          </div>{" "}
+          </Card>
         </Container>
       )}
     </>

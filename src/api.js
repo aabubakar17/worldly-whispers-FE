@@ -80,9 +80,6 @@ export function patchVoteByArticleID(articleID, newVote) {
 }
 
 export function postComment(articleID, commentToPost) {
-  console.log(articleID);
-  console.log(commentToPost.author);
-  console.log(commentToPost.body);
   return axios
     .post(
       `https://worldywhisper.onrender.com/api/articles/${articleID}/comments`,
@@ -92,6 +89,14 @@ export function postComment(articleID, commentToPost) {
       }
     )
     .then((response) => {
+      return response;
+    });
+}
+export function deleteCommentByCommentId(commentID) {
+  return axios
+    .delete(`https://worldywhisper.onrender.com/api/comments/${commentID}`)
+    .then((response) => {
+      console.log(response);
       return response;
     });
 }
