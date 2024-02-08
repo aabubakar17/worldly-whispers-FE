@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import { patchVoteByArticleID } from "../api";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Stack from "react-bootstrap/Stack";
 
 const ArticleSection = ({ currentArticle }) => {
   const [articleVote, setArticleVote] = useState(currentArticle.votes);
@@ -30,7 +31,7 @@ const ArticleSection = ({ currentArticle }) => {
 
   return (
     <div className="article-sec">
-      <Container fluid>
+      <Stack gap={3}>
         <Row>
           <Col xs={8}>
             <ArticleHeader title={currentArticle.title} />
@@ -67,7 +68,7 @@ const ArticleSection = ({ currentArticle }) => {
         </Row>
 
         <Row>
-          <Col xs={6} md={4}>
+          <Col>
             <Image src={currentArticle.article_img_url} rounded />
           </Col>
         </Row>
@@ -75,16 +76,16 @@ const ArticleSection = ({ currentArticle }) => {
           <p align="left">{currentArticle.body}</p>
         </Row>
         <Row></Row>
-      </Container>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Error</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Something went wrong, please try again.</p>
-        </Modal.Body>
-      </Modal>
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Error</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>Something went wrong, please try again.</p>
+          </Modal.Body>
+        </Modal>
+      </Stack>
     </div>
   );
 };

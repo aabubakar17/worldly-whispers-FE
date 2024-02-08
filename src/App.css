@@ -1,10 +1,15 @@
 #root {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .navBar {
   display: flex;
   align-items: center;
@@ -148,5 +153,11 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: none;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
   }
 }

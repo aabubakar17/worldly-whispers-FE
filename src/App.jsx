@@ -19,13 +19,15 @@ function App() {
     <>
       <NavBar />
 
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/article/:articleId" element={<ArticlePage />} />
-        <Route path="/categories" element={<CategoriesManager />} />
-        <Route path="/articles" element={<SearchManager />} />
-        <Route path="/footer" element={<Footer />} />
-      </Routes>
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/article/:articleId" element={<ArticlePage />} />
+          <Route path="/categories" element={<CategoriesManager />} />
+          <Route path="/articles" element={<SearchManager />} />
+          <Route path="/footer" element={<Footer />} />
+        </Routes>
+      </div>
 
       <Footer />
     </>
