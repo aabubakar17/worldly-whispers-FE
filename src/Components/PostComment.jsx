@@ -9,7 +9,7 @@ import Modal from "react-bootstrap/Modal";
 const PostComment = ({ articleId, commentsRecord, setCommentRecord }) => {
   const [commentToPost, setCommentToPost] = useState({
     body: "",
-    author: "tickle12",
+    author: "tickle122",
     votes: 0,
   });
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +21,7 @@ const PostComment = ({ articleId, commentsRecord, setCommentRecord }) => {
     });
     setCommentToPost({
       body: "",
-      author: "tickle12",
+      author: "tickle122",
       votes: 0,
     });
     postComment(articleId, commentToPost)
