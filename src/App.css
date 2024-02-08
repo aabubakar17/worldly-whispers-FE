@@ -45,12 +45,11 @@
   height: 45rem;
 }
 .article-img {
-  border-radius: 1rem 1rem 0 0;
-  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 .article-title {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .search-manager {

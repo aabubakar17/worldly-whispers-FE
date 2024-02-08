@@ -27,7 +27,7 @@ const ArticleCard = ({
               : "article-card-container card-container"
           }
         >
-          <Nav variant="underline" className="justify-content-center">
+          <Nav className="justify-content-center">
             <Nav.Item>
               <Nav.Link as={Link} to={`/article/${article.article_id}`}>
                 <Card.Img
