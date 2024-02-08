@@ -1,8 +1,18 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+import Nav from "react-bootstrap/Nav";
+import { useState } from "react";
 const CommentCard = ({ comment }) => {
+  const [commentVote, setCommentVote] = useState(comment.votes);
+
+  function handleVotesClick(isUpVote) {
+    let newVote = isUpVote ? commentVote + 1 : commentVote - 1;
+    setCommentVote(newVote);
+  }
+
   return (
     <div>
       <Col xs={7}>
@@ -14,13 +24,30 @@ const CommentCard = ({ comment }) => {
               roundedCircle
             />
             {comment.author}
+
             <span className="votes">
-              <Image
-                className="voteIcon-img"
-                src="https://static-00.iconduck.com/assets.00/upvote-icon-462x512-g0p9l3u3.png"
-                thumbnail
-              />
-              <span className="votes-text">{comment.votes}</span>
+              <Button className="vote-button" variant="light">
+                {" "}
+                <Image
+                  className="voteIcon-img"
+                  src="https://www.svgrepo.com/show/334337/upvote.svg"
+                  thumbnail
+                  onClick={() => {
+                    handleVotesClick(true);
+                  }}
+                />
+              </Button>
+              <Button className="vote-button" variant="light">
+                <Image
+                  className="voteIcon-img"
+                  src="https://www.svgrepo.com/show/333916/downvote.svg"
+                  thumbnail
+                  onClick={() => {
+                    handleVotesClick(false);
+                  }}
+                />
+              </Button>
+              <span className="votes-text">{commentVote}</span>
             </span>
           </Card.Header>
           <Card.Body>{comment.body}</Card.Body>

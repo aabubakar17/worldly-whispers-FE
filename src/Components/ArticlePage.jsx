@@ -23,7 +23,6 @@ const ArticlePage = () => {
       ) : (
         <Loading />
       )}
-
       <CommentManager articleId={articleId} />
     </div>
   );
