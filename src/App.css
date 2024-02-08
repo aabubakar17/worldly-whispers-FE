@@ -2,7 +2,7 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .navBar {
@@ -122,6 +122,10 @@
 .vote-button:hover {
   background-color: rgb(204, 0, 255);
 }
+.post-btn:hover {
+  background-color: rgb(204, 0, 255);
+}
+
 .article-voteIcon-img {
   width: 40px;
   mix-blend-mode: multiply;

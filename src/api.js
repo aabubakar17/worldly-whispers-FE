@@ -78,3 +78,20 @@ export function patchVoteByArticleID(articleID, newVote) {
     }
   );
 }
+
+export function postComment(articleID, commentToPost) {
+  console.log(articleID);
+  console.log(commentToPost.author);
+  console.log(commentToPost.body);
+  return axios
+    .post(
+      `https://worldywhisper.onrender.com/api/articles/${articleID}/comments`,
+      {
+        username: commentToPost.author,
+        body: commentToPost.body,
+      }
+    )
+    .then((response) => {
+      return response;
+    });
+}

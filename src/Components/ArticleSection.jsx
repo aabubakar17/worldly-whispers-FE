@@ -15,7 +15,7 @@ const ArticleSection = ({ currentArticle }) => {
   function handleVotesClick(isUpVote) {
     let newVote = isUpVote ? articleVote + 1 : articleVote - 1;
     setArticleVote(newVote);
-    patchVoteByArticleID(currentArticle.article_id, articleVote).catch(() => {
+    patchVoteByArticleID(currentArticle.article_id, newVote).catch(() => {
       setArticleVote((currentVote) => {
         return currentVote - 1;
       });
