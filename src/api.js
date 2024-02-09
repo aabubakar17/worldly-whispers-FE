@@ -29,12 +29,19 @@ export function getArticles(searchTerm) {
     });
 }
 
-export function getLatestArticles(currentCategory) {
-  let url =
-    "https://worldywhisper.onrender.com/api/articles?sort_by=created_at";
+export function getLatestArticles(currentCategory, sortQuery) {
+  let url = "https://worldywhisper.onrender.com/api/articles?";
+
   if (currentCategory) {
-    url += `&topic=${currentCategory}`;
+    url += `topic=${currentCategory}`;
   }
+
+  if (sortQuery) {
+    url += `&${sortQuery}`;
+  } else {
+    url += "&sort_by=created_at";
+  }
+
   return axios.get(url).then((response) => {
     const { articles } = response.data;
     return articles;

@@ -99,7 +99,8 @@
 .comment-header {
   display: block;
 }
-.voteIcon-img {
+.voteIcon-img,
+.FilterIcon-img {
   width: 40px;
   padding: 0.5rem;
   mix-blend-mode: multiply;
@@ -163,5 +164,17 @@
 @media (max-width: 600px) {
   .trending-card-container img {
     height: 25rem;
+  }
+}
+@media (max-width: 320px) {
+  .trending-grid {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .trending-card-container {
+    border-radius: 1rem;
+    box-shadow: 0px 10px 8px #999;
+    margin: 0;
+    grid-area: 1 / 1 / 1 / 1;
   }
 }
