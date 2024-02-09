@@ -37,7 +37,7 @@ const FilterManager = ({ currentCategory, setArticleList }) => {
             }
             active={selectedFilter === "Most Recent"}
           >
-            Most Recent
+            Most Recent (default)
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() =>
