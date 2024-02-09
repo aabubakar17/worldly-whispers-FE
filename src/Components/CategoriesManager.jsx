@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NavBar from "./NavBar";
+import FilterManager from "./FilterManager";
 
 const CategoriesManager = () => {
   const [categoryList, setCategoryList] = useState([]);
@@ -42,6 +43,12 @@ const CategoriesManager = () => {
               </Nav.Item>
             </Nav>
           </Col>
+          <Col xs="auto">
+            <FilterManager
+              currentCategory={currentCategory}
+              setArticleList={setLatestArticles}
+            />
+          </Col>
         </Row>
 
         <Row>
@@ -53,6 +60,7 @@ const CategoriesManager = () => {
                     variant="light"
                     value={currentCategory}
                     onClick={() => setCurrentCategory(category.slug)}
+                    active={currentCategory === category.slug}
                   >
                     {category.slug}
                   </Nav.Link>
