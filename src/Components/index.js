@@ -6,6 +6,7 @@ import SearchManager from "./SearchManager";
 import CategoriesManager from "./CategoriesManager";
 import ArticlePage from "./ArticlePage";
 import Footer from "./Footer";
+import ContactUs from "../ContactUs";
 
 export {
   Header,
@@ -14,6 +15,7 @@ export {
   Hero,
   SearchManager,
   CategoriesManager,
+  ContactUs,
   ArticlePage,
   Footer,
 };

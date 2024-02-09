@@ -11,7 +11,6 @@ export function getTrendingArticles() {
 }
 
 export function getArticles(searchTerm) {
-  console.log(searchTerm);
   return axios
     .get("https://worldywhisper.onrender.com/api/articles")
     .then((response) => {
@@ -103,7 +102,6 @@ export function deleteCommentByCommentId(commentID) {
   return axios
     .delete(`https://worldywhisper.onrender.com/api/comments/${commentID}`)
     .then((response) => {
-      console.log(response);
       return response;
     });
 }

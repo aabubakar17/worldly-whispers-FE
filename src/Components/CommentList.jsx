@@ -33,6 +33,7 @@ const CommentList = ({ commentsRecord, setCommentRecord }) => {
               key={index}
               comment={comment}
               onDelete={handleDelete}
+              commentID={comment.comment_id}
             />
           );
         })

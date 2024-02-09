@@ -9,6 +9,7 @@ import {
   Hero,
   SearchManager,
   CategoriesManager,
+  ContactUs,
   Footer,
 } from "./Components/index.js";
 import "./App.css";
@@ -25,7 +26,7 @@ function App() {
           <Route path="/article/:articleId" element={<ArticlePage />} />
           <Route path="/categories" element={<CategoriesManager />} />
           <Route path="/articles" element={<SearchManager />} />
-          <Route path="/footer" element={<Footer />} />
+          <Route path="/footer" element={<ContactUs />} />
         </Routes>
       </div>
 

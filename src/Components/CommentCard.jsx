@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 import { useState } from "react";
-const CommentCard = ({ comment, onDelete }) => {
+const CommentCard = ({ comment, onDelete, commentID }) => {
   const [commentVote, setCommentVote] = useState(comment.votes);
 
   function handleVotesClick(isUpVote) {
@@ -14,7 +14,6 @@ const CommentCard = ({ comment, onDelete }) => {
   }
 
   const isAuthor = comment.author === "tickle122";
-
   return (
     <div>
       <Col xs={7}>
@@ -54,13 +53,13 @@ const CommentCard = ({ comment, onDelete }) => {
           </Card.Header>
           <Card.Body>{comment.body}</Card.Body>
           <div className="delete-btn-container">
-            {" "}
-            {/* Wrap the delete button with this container */}
             {isAuthor && (
               <Button
                 variant="danger"
                 className="delete-btn"
-                onClick={() => onDelete(comment.comment_id)}
+                onClick={() => {
+                  onDelete(commentID);
+                }}
               >
                 Delete
               </Button>

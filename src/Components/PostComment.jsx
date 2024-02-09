@@ -18,30 +18,36 @@ const PostComment = ({ articleId, commentsRecord, setCommentRecord }) => {
     event.preventDefault();
     if (commentToPost.body === "") {
       setShowModal(true);
-    } else {
-      setCommentRecord((currentComments) => {
-        return [commentToPost, ...currentComments];
-      });
-      setCommentToPost({
-        body: "",
-        author: "tickle122",
-        votes: 0,
-      });
-      postComment(articleId, commentToPost)
-        .then((result) => {
-          console.log(result);
-        })
-        .catch((error) => {
-          console.log(error);
-          setCommentRecord(commentsRecord);
-
-          setShowModal(true);
-        });
     }
+    setCommentRecord((currentComments) => {
+      return [commentToPost, ...currentComments];
+    });
+    setCommentToPost({
+      body: "",
+      author: "tickle122",
+      votes: 0,
+    });
+    postComment(articleId, commentToPost)
+      .then(() => {
+        setCommentRecord((currentComments) => {
+          return [commentToPost, ...currentComments];
+        });
+        setCommentToPost({
+          body: "",
+          author: "tickle122",
+          votes: 0,
+        });
+      })
+      .catch((error) => {
+        setCommentRecord(commentsRecord);
+
+        setShowModal(true);
+      });
   }
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
   return (
     <div>
       <Form onSubmit={handleSubmit}>
