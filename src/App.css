@@ -99,25 +99,25 @@
 .comment-header {
   display: block;
 }
-.FilterIcon-img,
-.voteIcon-img {
+.voteIcon-img,
+.FilterIcon-img {
   width: 40px;
   padding: 0.5rem;
   mix-blend-mode: multiply;
   border: none;
 }
-
 .votes {
   float: inline-end;
 }
 
 .delete-btn-container {
-  position: relative;
+  position: relative; /* Set the parent container to relative positioning */
 }
 
 .delete-btn {
-  position: absolute;
-  bottom: 0;
+  position: absolute; /* Position the delete button absolutely */
+  bottom: 0; /* Align the delete button to the bottom */
+  right: 0; /* Align the delete button to the right */
   margin: 0.5rem;
 }
 

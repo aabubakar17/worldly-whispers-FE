@@ -54,6 +54,8 @@ const CommentCard = ({ comment, onDelete }) => {
           </Card.Header>
           <Card.Body>{comment.body}</Card.Body>
           <div className="delete-btn-container">
+            {" "}
+            {/* Wrap the delete button with this container */}
             {isAuthor && (
               <Button
                 variant="danger"
