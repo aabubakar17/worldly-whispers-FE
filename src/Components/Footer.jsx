@@ -7,6 +7,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="social-icons">
           <a
+            title="Linkedin Profile"
             href="https://www.linkedin.com/in/abubakar-abubakar-46a9141a1/"
             target="_blank"
             rel="noopener noreferrer"
@@ -14,6 +15,7 @@ const Footer = () => {
             <FaLinkedin className="footer-icon" />
           </a>
           <a
+            title="Github Profile"
             href="https://github.com/aabubakar17"
             target="_blank"
             rel="noopener noreferrer"

@@ -24,6 +24,7 @@ const FilterManager = ({ currentCategory, setArticleList }) => {
           <Image
             className="FilterIcon-img"
             src="https://cdn-icons-png.flaticon.com/512/6488/6488674.png"
+            alt="filter icon"
             thumbnail
           />
         </Dropdown.Toggle>

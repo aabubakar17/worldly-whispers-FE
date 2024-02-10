@@ -20,42 +20,44 @@ const ArticleCard = ({
   return (
     <>
       {isInHero ? (
-        <Card
-          style={{ width: "25rem" }}
-          className={
-            index === 0
-              ? "trending-card-container card-container"
-              : "article-card-container card-container"
-          }
-        >
+        <Container fluid>
           <Nav variant="underline" className="justify-content-center">
             <Nav.Item>
               <Nav.Link as={Link} to={`/article/${article.article_id}`}>
-                <Card.Img
-                  className="article-img"
-                  variant="top"
-                  src={articleImg}
-                  alt={`picture of ${article_title}`}
-                />
-                <Card.Body>
-                  <Card.Title className="article-title">
-                    {article_title}
-                  </Card.Title>
-                  <Card.Text>Author: {author}</Card.Text>
-                  <Card.Text>
-                    {dayjs(date.split("T")).fromNow(true)} ago
-                  </Card.Text>
-                </Card.Body>
+                <Card
+                  style={{ border: "none" }}
+                  className={
+                    index === 0
+                      ? "trending-card-container"
+                      : "article-card-container"
+                  }
+                >
+                  <Card.Img
+                    className="article-img"
+                    variant="top"
+                    src={articleImg}
+                    alt={`picture of ${article_title}`}
+                  />
+                  <Card.Body>
+                    <Card.Title className="article-title">
+                      {article_title}
+                    </Card.Title>
+                    <Card.Text>Author: {author}</Card.Text>
+                    <Card.Text>
+                      {dayjs(date.split("T")).fromNow(true)} ago
+                    </Card.Text>
+                  </Card.Body>
+                </Card>{" "}
               </Nav.Link>
             </Nav.Item>
           </Nav>
-        </Card>
+        </Container>
       ) : (
         <Container fluid>
-          <Card className="category-card-container">
-            <Nav variant="underline" className="justify-content-center">
-              <Nav.Item>
-                <Nav.Link as={Link} to={`/article/${article.article_id}`}>
+          <Nav variant="underline" className="justify-content-center">
+            <Nav.Item>
+              <Nav.Link as={Link} to={`/article/${article.article_id}`}>
+                <Card className="category-card-container">
                   <Card.Img
                     className="cat-article-img"
                     variant="top"
@@ -71,10 +73,10 @@ const ArticleCard = ({
                       {dayjs(date.split("T")).fromNow(true)} ago
                     </Card.Text>
                   </Card.Body>
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Card>
+                </Card>
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
         </Container>
       )}
     </>

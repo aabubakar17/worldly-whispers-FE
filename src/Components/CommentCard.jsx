@@ -27,6 +27,7 @@ const CommentCard = ({ comment, onDelete, commentID }) => {
                 <Image
                   className="avatar-img"
                   src="https://ca.slack-edge.com/T01KPE0QGCD-U066BE21ALW-g582122507ca-512"
+                  alt={`${comment.author} avatar`}
                   roundedCircle
                 />
                 <span style={{ color: "black" }}>{comment.author}</span>
@@ -35,6 +36,7 @@ const CommentCard = ({ comment, onDelete, commentID }) => {
                   <Image
                     className="voteIcon-img"
                     src="https://www.svgrepo.com/show/334337/upvote.svg"
+                    alt="vote up button"
                     thumbnail
                     onClick={() => {
                       handleVotesClick(true);
@@ -45,6 +47,7 @@ const CommentCard = ({ comment, onDelete, commentID }) => {
                   <Image
                     className="voteIcon-img"
                     src="https://www.svgrepo.com/show/333916/downvote.svg"
+                    alt="vote down button"
                     thumbnail
                     onClick={() => {
                       handleVotesClick(false);

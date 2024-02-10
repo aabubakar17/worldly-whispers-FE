@@ -37,6 +37,7 @@ const ArticleSection = ({ currentArticle }) => {
             <Image
               className="article-voteIcon-img"
               src="https://www.svgrepo.com/show/334337/upvote.svg"
+              alt="vote up button"
               thumbnail
               onClick={() => {
                 handleVotesClick(true);
@@ -47,6 +48,7 @@ const ArticleSection = ({ currentArticle }) => {
             <Image
               className="article-voteIcon-img"
               src="https://www.svgrepo.com/show/333916/downvote.svg"
+              alt="vote down button"
               thumbnail
               onClick={() => {
                 handleVotesClick(false);
@@ -62,6 +64,7 @@ const ArticleSection = ({ currentArticle }) => {
         <Image
           className="article-sec-img"
           src={currentArticle.article_img_url}
+          alt={`picture of ${currentArticle.title}`}
           rounded
         />
         <p align="left">{currentArticle.body}</p>
