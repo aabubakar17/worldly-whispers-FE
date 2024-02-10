@@ -16,15 +16,17 @@ export function getArticles(searchTerm) {
     .then((response) => {
       const { articles } = response.data;
       if (searchTerm) {
-        const searchedArticle = articles.find((article) => {
-          if (article.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return article;
-          }
+        const searchedArticles = articles.filter((article) => {
+          return article.title.toLowerCase().includes(searchTerm.toLowerCase());
         });
-        return [searchedArticle];
+        return searchedArticles;
       }
 
       return articles;
+    })
+    .catch((error) => {
+      console.error("Error fetching articles:", error);
+      return [];
     });
 }
 

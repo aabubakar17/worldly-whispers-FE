@@ -4,7 +4,7 @@ const ArticleHeader = ({ title }) => {
   return (
     <div>
       {" "}
-      <h1 align="left">{title}</h1>
+      <h1 className="article-header">{title}</h1>
     </div>
   );
 };

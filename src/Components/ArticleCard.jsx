@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs/esm/index.js";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Container } from "react-bootstrap";
 
@@ -21,13 +21,14 @@ const ArticleCard = ({
     <>
       {isInHero ? (
         <Card
+          style={{ width: "25rem" }}
           className={
             index === 0
               ? "trending-card-container card-container"
               : "article-card-container card-container"
           }
         >
-          <Nav className="justify-content-center">
+          <Nav variant="underline" className="justify-content-center">
             <Nav.Item>
               <Nav.Link as={Link} to={`/article/${article.article_id}`}>
                 <Card.Img
@@ -42,7 +43,7 @@ const ArticleCard = ({
                   </Card.Title>
                   <Card.Text>Author: {author}</Card.Text>
                   <Card.Text>
-                    Date: {dayjs(date.split("T")).fromNow(true)} ago
+                    {dayjs(date.split("T")).fromNow(true)} ago
                   </Card.Text>
                 </Card.Body>
               </Nav.Link>
@@ -51,12 +52,12 @@ const ArticleCard = ({
         </Card>
       ) : (
         <Container fluid>
-          <Card>
+          <Card className="category-card-container">
             <Nav variant="underline" className="justify-content-center">
               <Nav.Item>
                 <Nav.Link as={Link} to={`/article/${article.article_id}`}>
                   <Card.Img
-                    className="article-img"
+                    className="cat-article-img"
                     variant="top"
                     src={articleImg}
                     alt={`picture of ${article_title}`}
@@ -67,7 +68,7 @@ const ArticleCard = ({
                     </Card.Title>
                     <Card.Text>Author: {author}</Card.Text>
                     <Card.Text>
-                      Date: {dayjs(date.split("T")).fromNow(true)} ago
+                      {dayjs(date.split("T")).fromNow(true)} ago
                     </Card.Text>
                   </Card.Body>
                 </Nav.Link>

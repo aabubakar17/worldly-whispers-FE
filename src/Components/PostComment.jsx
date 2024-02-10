@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
-import { postComment } from "../api";
+import { postComment, getCommentsByID } from "../api";
 import Modal from "react-bootstrap/Modal";
 
 const PostComment = ({ articleId, commentsRecord, setCommentRecord }) => {
@@ -18,38 +18,34 @@ const PostComment = ({ articleId, commentsRecord, setCommentRecord }) => {
     event.preventDefault();
     if (commentToPost.body === "") {
       setShowModal(true);
+      return;
     }
-    setCommentRecord((currentComments) => {
-      return [commentToPost, ...currentComments];
-    });
+
+    postComment(articleId, commentToPost)
+      .then((response) => {
+        return getCommentsByID(articleId);
+      })
+      .then((comments) => {
+        setCommentRecord(comments);
+      })
+      .catch((error) => {
+        console.error("Error posting comment:", error);
+        setShowModal(true);
+      });
+
     setCommentToPost({
       body: "",
       author: "tickle122",
       votes: 0,
     });
-    postComment(articleId, commentToPost)
-      .then(() => {
-        setCommentRecord((currentComments) => {
-          return [commentToPost, ...currentComments];
-        });
-        setCommentToPost({
-          body: "",
-          author: "tickle122",
-          votes: 0,
-        });
-      })
-      .catch((error) => {
-        setCommentRecord(commentsRecord);
-
-        setShowModal(true);
-      });
   }
+
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
   return (
-    <div>
+    <div className="post-container">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Post a Comment:</Form.Label>

@@ -3,13 +3,19 @@ body {
   display: flex;
   flex-direction: row;
   place-items: center;
-  min-width: 320px;
-  min-height: 100px;
-  max-width: fit-content;
+  width: 100vw;
+  height: 100vh;
 }
 
 h1 {
-  font-size: 2rem;
-  line-height: 1.1;
+  font-size: 3rem;
+  line-height: 1.5;
   text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+h2 {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
 }

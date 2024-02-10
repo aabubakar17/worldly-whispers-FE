@@ -6,8 +6,9 @@ const Homepage = () => {
   return (
     <div>
       <Header />
-      <Hero />
       <SearchManager />
+      <Hero />
+
       <CategoriesManager />
     </div>
   );

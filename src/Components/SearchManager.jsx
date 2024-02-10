@@ -9,43 +9,59 @@ import { getArticles } from "../api";
 
 const SearchManager = () => {
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [error, setError] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
   function handleFormSubmit(event) {
-    setIsLoading(true);
     event.preventDefault();
-    getArticles(searchTerm).then((articles) => {
-      console.log(articles);
-      setArticles(articles);
-      setIsLoading(false);
-    });
+    setIsLoading(true);
+    setSubmitted(true);
+    getArticles(searchTerm)
+      .then((articles) => {
+        setArticles(articles);
+        setIsLoading(false);
+        setError(null);
+      })
+      .catch((error) => {
+        setError(error.message || "An error occurred while fetching articles.");
+        setIsLoading(false);
+      });
   }
 
-  if (isLoading) return <Loading />;
   return (
     <>
-      <div className="search-manager">
-        <Form className="form-inline" onSubmit={handleFormSubmit}>
-          <Row>
-            <Col>
-              <Form.Control
-                type="text"
-                placeholder="Search"
-                className=" mr-sm-2"
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-              />
-            </Col>
-            <Col xs="auto">
-              <Button className="search-btn" type="Submit">
-                Search
-              </Button>
-            </Col>
-          </Row>
-        </Form>
-      </div>
-      {articles.length > 0 ? <ArticleList articles={articles} /> : null}
+      <section className="search-manager-container">
+        <div className="search-manager">
+          <Form className="form-inline" onSubmit={handleFormSubmit}>
+            <Row>
+              <Col>
+                <Form.Control
+                  type="text"
+                  placeholder="Search"
+                  className="mr-sm-2"
+                  value={searchTerm}
+                  onChange={(event) => setSearchTerm(event.target.value)}
+                />
+              </Col>
+              <Col xs="auto">
+                <Button className="search-btn" type="submit">
+                  Search
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+        </div>
+        {isLoading && <Loading />}
+        {error && <div>Error: {error}</div>}
+        {submitted && !isLoading && articles.length === 0 && (
+          <div>No articles found.</div>
+        )}
+        {submitted && articles.length > 0 && !isLoading && (
+          <ArticleList articles={articles} />
+        )}
+      </section>
     </>
   );
 };

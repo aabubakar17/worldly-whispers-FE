@@ -29,51 +29,53 @@ const ArticleSection = ({ currentArticle }) => {
   };
 
   return (
-    <div className="article-sec">
+    <>
       <ArticleHeader title={currentArticle.title} />
-      <div className="article-votes">
-        <Button className="vote-button" variant="light">
-          <Image
-            className="article-voteIcon-img"
-            src="https://www.svgrepo.com/show/334337/upvote.svg"
-            thumbnail
-            onClick={() => {
-              handleVotesClick(true);
-            }}
-          />
-        </Button>
-        <Button className="vote-button" variant="light">
-          <Image
-            className="article-voteIcon-img"
-            src="https://www.svgrepo.com/show/333916/downvote.svg"
-            thumbnail
-            onClick={() => {
-              handleVotesClick(false);
-            }}
-          />
-        </Button>
+      <div className="article-sec">
+        <div className="article-votes">
+          <Button className="vote-button" variant="light">
+            <Image
+              className="article-voteIcon-img"
+              src="https://www.svgrepo.com/show/334337/upvote.svg"
+              thumbnail
+              onClick={() => {
+                handleVotesClick(true);
+              }}
+            />
+          </Button>
+          <Button className="vote-button" variant="light">
+            <Image
+              className="article-voteIcon-img"
+              src="https://www.svgrepo.com/show/333916/downvote.svg"
+              thumbnail
+              onClick={() => {
+                handleVotesClick(false);
+              }}
+            />
+          </Button>
 
-        <span className="article-votes-text" align="left">
-          {articleVote}
-        </span>
+          <span className="article-votes-text" align="left">
+            {articleVote}
+          </span>
+        </div>
+
+        <Image
+          className="article-sec-img"
+          src={currentArticle.article_img_url}
+          rounded
+        />
+        <p align="left">{currentArticle.body}</p>
+
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Error</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>Something went wrong, please try again.</p>
+          </Modal.Body>
+        </Modal>
       </div>
-
-      <Image
-        className="article-sec-img"
-        src={currentArticle.article_img_url}
-        rounded
-      />
-      <p align="left">{currentArticle.body}</p>
-
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Error</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Something went wrong, please try again.</p>
-        </Modal.Body>
-      </Modal>
-    </div>
+    </>
   );
 };
 

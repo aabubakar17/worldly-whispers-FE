@@ -18,19 +18,17 @@ function App() {
   const [clickedArticle, setClickedArticle] = useState(null);
   return (
     <div className="app-container">
-      <NavBar />
-
       <div className="main-content">
+        <NavBar />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/article/:articleId" element={<ArticlePage />} />
           <Route path="/categories" element={<CategoriesManager />} />
           <Route path="/articles" element={<SearchManager />} />
-          <Route path="/footer" element={<ContactUs />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
         </Routes>
-      </div>
-
-      <Footer />
+        <Footer />
+      </div>{" "}
     </div>
   );
 }

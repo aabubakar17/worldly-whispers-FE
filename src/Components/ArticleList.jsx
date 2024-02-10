@@ -17,7 +17,7 @@ const ArticleList = ({ articles, children }) => {
             />
           ))
         ) : (
-          <p>Sorry, No Content Found</p>
+          <p className="search-not-found">Sorry, No Content Found</p>
         )
       ) : articles[0] !== undefined ? (
         articles

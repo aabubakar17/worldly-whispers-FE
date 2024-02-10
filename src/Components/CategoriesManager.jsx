@@ -70,7 +70,9 @@ const CategoriesManager = () => {
           })}
         </Row>
       </div>
-      <ArticleList articles={latestArticles}>{seeAllToggle}</ArticleList>
+      <div className="categories-article-container">
+        <ArticleList articles={latestArticles}>{seeAllToggle}</ArticleList>
+      </div>
     </>
   );
 };
