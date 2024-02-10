@@ -18,7 +18,8 @@ const CommentCard = ({ comment, onDelete, commentID }) => {
   };
 
   return (
-    <Col xs={9}>
+    <Col xs={11} md={8}>
+      {" "}
       <Row style={{ marginBottom: "20px", marginLeft: "2rem" }}>
         <div className="comment-wrapper" style={commentWrapperStyle}>
           <Col xs={12} className="d-flex justify-content-center">
@@ -94,7 +95,6 @@ const CommentCard = ({ comment, onDelete, commentID }) => {
   );
 };
 
-// Define the custom styles for the comment card wrapper
 const commentWrapperStyle = {
   marginTop: "2rem",
   background: "linear-gradient(to bottom, #8a2be2, #4b0082)",
@@ -102,9 +102,8 @@ const commentWrapperStyle = {
   padding: "1px",
 };
 
-// Define the custom styles for the comment card
 const commentCardStyle = {
-  border: "1px solid #8a2be2", // Border color matches the background
+  border: "1px solid #8a2be2",
   borderRadius: "20px",
 };
 

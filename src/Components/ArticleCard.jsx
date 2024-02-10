@@ -57,7 +57,10 @@ const ArticleCard = ({
           <Nav variant="underline" className="justify-content-center">
             <Nav.Item>
               <Nav.Link as={Link} to={`/article/${article.article_id}`}>
-                <Card className="category-card-container">
+                <Card
+                  style={{ border: "none" }}
+                  className="category-card-container"
+                >
                   <Card.Img
                     className="cat-article-img"
                     variant="top"
