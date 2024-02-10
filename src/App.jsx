@@ -27,8 +27,8 @@ function App() {
           <Route path="/explore" element={<SearchManager />} />
           <Route path="/ContactUs" element={<ContactUs />} />
         </Routes>
-        <Footer />
-      </div>{" "}
+      </div>
+      <Footer />
     </div>
   );
 }

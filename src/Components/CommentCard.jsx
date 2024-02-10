@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card, Col, Image, Modal } from "react-bootstrap";
+import { Button, Card, Col, Image, Modal, Row } from "react-bootstrap";
 
 const CommentCard = ({ comment, onDelete, commentID }) => {
   const [commentVote, setCommentVote] = useState(comment.votes);
@@ -18,79 +18,91 @@ const CommentCard = ({ comment, onDelete, commentID }) => {
   };
 
   return (
-    <div>
-      <Col xs={7}>
-        <Card className="commentList-container" style={commentCardStyle}>
-          <Card.Header className="comment-header" align="left">
-            <Image
-              className="avatar-img"
-              src="https://ca.slack-edge.com/T01KPE0QGCD-U066BE21ALW-g582122507ca-512"
-              roundedCircle
-            />
-            <span style={{ color: "white" }}>{comment.author}</span>
+    <Col xs={9}>
+      <Row style={{ marginBottom: "20px", marginLeft: "2rem" }}>
+        <div className="comment-wrapper" style={commentWrapperStyle}>
+          <Col xs={12} className="d-flex justify-content-center">
+            <Card className="commentList-container" style={commentCardStyle}>
+              <Card.Header className="comment-header" align="left">
+                <Image
+                  className="avatar-img"
+                  src="https://ca.slack-edge.com/T01KPE0QGCD-U066BE21ALW-g582122507ca-512"
+                  roundedCircle
+                />
+                <span style={{ color: "black" }}>{comment.author}</span>
 
-            <span className="votes">
-              <Image
-                className="voteIcon-img"
-                src="https://www.svgrepo.com/show/334337/upvote.svg"
-                thumbnail
-                onClick={() => {
-                  handleVotesClick(true);
-                }}
-                style={{ cursor: "pointer" }}
-              />
+                <span className="votes">
+                  <Image
+                    className="voteIcon-img"
+                    src="https://www.svgrepo.com/show/334337/upvote.svg"
+                    thumbnail
+                    onClick={() => {
+                      handleVotesClick(true);
+                    }}
+                    style={{ cursor: "pointer" }}
+                  />
 
-              <Image
-                className="voteIcon-img"
-                src="https://www.svgrepo.com/show/333916/downvote.svg"
-                thumbnail
-                onClick={() => {
-                  handleVotesClick(false);
-                }}
-                style={{ cursor: "pointer" }}
-              />
+                  <Image
+                    className="voteIcon-img"
+                    src="https://www.svgrepo.com/show/333916/downvote.svg"
+                    thumbnail
+                    onClick={() => {
+                      handleVotesClick(false);
+                    }}
+                    style={{ cursor: "pointer" }}
+                  />
 
-              <span className="votes-text" style={{ color: "white" }}>
-                {commentVote}
-              </span>
-            </span>
-          </Card.Header>
-          <Card.Body style={{ color: "white" }}>{comment.body}</Card.Body>
-          <div className="delete-btn-container">
-            {isAuthor && (
-              <Button
-                variant="danger"
-                className="delete-btn"
-                onClick={handleDelete}
-              >
-                Delete
+                  <span className="votes-text" style={{ color: "black" }}>
+                    {commentVote}
+                  </span>
+                </span>
+              </Card.Header>
+              <Card.Body style={{ color: "black" }}>{comment.body}</Card.Body>
+              <div className="delete-btn-container">
+                {isAuthor && (
+                  <Button
+                    variant="danger"
+                    className="delete-btn"
+                    onClick={handleDelete}
+                  >
+                    Delete
+                  </Button>
+                )}
+              </div>
+            </Card>
+          </Col>
+          <Modal show={showModal} onHide={() => setShowModal(false)}>
+            <Modal.Header
+              closeButton
+              style={{ backgroundColor: "#28a745", color: "#fff" }}
+            >
+              <Modal.Title>Successful</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>The comment has been successfully deleted.</Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={() => setShowModal(false)}>
+                Close
               </Button>
-            )}
-          </div>
-        </Card>
-      </Col>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header
-          closeButton
-          style={{ backgroundColor: "#28a745", color: "#fff" }}
-        >
-          <Modal.Title>Successful</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>The comment has been successfully deleted.</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+            </Modal.Footer>
+          </Modal>
+        </div>
+      </Row>
+    </Col>
   );
+};
+
+// Define the custom styles for the comment card wrapper
+const commentWrapperStyle = {
+  marginTop: "2rem",
+  background: "linear-gradient(to bottom, #8a2be2, #4b0082)",
+  borderRadius: "35px",
+  padding: "1px",
 };
 
 // Define the custom styles for the comment card
 const commentCardStyle = {
-  background: "linear-gradient(to bottom, #8a2be2, #4b0082)",
-  borderRadius: "15px",
+  border: "1px solid #8a2be2", // Border color matches the background
+  borderRadius: "20px",
 };
 
 export default CommentCard;
