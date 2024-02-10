@@ -7,6 +7,7 @@ import CategoriesManager from "./CategoriesManager";
 import ArticlePage from "./ArticlePage";
 import Footer from "./Footer";
 import ContactUs from "../ContactUs";
+import HomepageNavBar from "./HomepageNavBar";
 
 export {
   Header,
@@ -17,5 +18,6 @@ export {
   CategoriesManager,
   ContactUs,
   ArticlePage,
+  HomepageNavBar,
   Footer,
 };

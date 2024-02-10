@@ -4,32 +4,33 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 
 const NavBar = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="/">Worldly Whispers</Navbar.Brand>
+    <Navbar className="navbar" expand="lg">
+      <Container fluid>
+        <Navbar.Brand as={Link} to="/">
+          <img src="/logo.png" alt="Logo" style={{ marginLeft: "50px" }} />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">
+          <Nav className="me-auto" style={{ width: "90%" }}>
+            <Nav.Link as={Link} to="/" className="nav-link">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/categories">
+            <Nav.Link as={Link} to="/categories" className="nav-link">
               Categories
             </Nav.Link>
-            <Nav.Link as={Link} to="/articles">
-              Articles
+            <Nav.Link as={Link} to="/explore" className="nav-link">
+              Explore
             </Nav.Link>
-            <Nav.Link as={Link} to="/ContactUs">
+            <Nav.Link as={Link} to="/ContactUs" className="nav-link">
               Contact Us
             </Nav.Link>
           </Nav>
           <Nav>
-            <Button className="login-btn">
-              Currently Logged in: tickle122
+            <Button variant="light" className="login-btn">
+              User: tickle122
             </Button>
           </Nav>
         </Navbar.Collapse>

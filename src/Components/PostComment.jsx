@@ -70,7 +70,10 @@ const PostComment = ({ articleId, commentsRecord, setCommentRecord }) => {
       </Form>
 
       <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
+        <Modal.Header
+          closeButton
+          style={{ backgroundColor: "#ff0000", color: "#fff" }}
+        >
           <Modal.Title>Error</Modal.Title>
         </Modal.Header>
         <Modal.Body>

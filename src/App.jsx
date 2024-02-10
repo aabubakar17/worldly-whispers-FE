@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   NavBar,
@@ -9,22 +8,23 @@ import {
   Hero,
   SearchManager,
   CategoriesManager,
+  HomepageNavBar,
   ContactUs,
   Footer,
 } from "./Components/index.js";
 import "./App.css";
 
 function App() {
-  const [clickedArticle, setClickedArticle] = useState(null);
+  const location = useLocation();
   return (
     <div className="app-container">
+      {location.pathname === "/" ? null : <NavBar />}
       <div className="main-content">
-        <NavBar />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/article/:articleId" element={<ArticlePage />} />
           <Route path="/categories" element={<CategoriesManager />} />
-          <Route path="/articles" element={<SearchManager />} />
+          <Route path="/explore" element={<SearchManager />} />
           <Route path="/ContactUs" element={<ContactUs />} />
         </Routes>
         <Footer />

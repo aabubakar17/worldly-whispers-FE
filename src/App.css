@@ -1,6 +1,7 @@
 #root {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .app-container {
@@ -68,9 +69,6 @@
   height: fit-content;
 }
 
-.trending-card-container img {
-}
-
 .article-img {
   border-radius: 0.5rem 0.5rem 0 0;
 }
@@ -79,7 +77,7 @@
 }
 
 .article-title {
-  margin: 0;
+  margin: none;
   font-size: 1.1rem;
 }
 
@@ -127,7 +125,7 @@
   text-align: left;
   font-size: 2rem;
   line-height: 1.1;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 .article-sec {
   margin: 2rem;
@@ -135,6 +133,7 @@
 
 .article-sec-img {
   width: 50%;
+  margin-top: 1rem;
 }
 
 .commentList-container {
@@ -153,7 +152,9 @@
 
 .voteIcon-img,
 .FilterIcon-img {
-  width: 40px;
+  width: 35px;
+  height: 40px;
+  margin: 1px;
   padding: 0.5rem;
   mix-blend-mode: multiply;
   border: none;
@@ -179,11 +180,11 @@
 }
 
 .vote-button:hover {
-  background-color: rgb(204, 0, 255);
+  background-color: #8a2be2;
 }
 
 .post-btn:hover {
-  background-color: rgb(204, 0, 255);
+  background-color: #8a2be2;
 }
 
 .article-voteIcon-img {
@@ -270,10 +271,25 @@
   font-size: 14px;
 }
 
-.copyrigh {
+.copyright {
   font-size: 12px;
   margin-top: 10px;
   color: #ccc;
+}
+
+/* Homepage.css */
+.section-1 {
+  /* Styles for the hero section */
+  background-image: linear-gradient(to bottom, #8a2be2, #4b0082);
+  color: white; /* White font color */
+
+  padding-bottom: 3rem;
+}
+
+.categories-manager-section {
+  /* Styles for the categories manager section */
+  background-color: white;
+  color: black; /* Black font color */
 }
 
 @media (min-width: 1024px) {
