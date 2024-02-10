@@ -50,15 +50,12 @@ const SearchManager = () => {
           <h1>Search for an Article</h1>
           <section className="search-manager-container">
             <div className="search-manager">
-              <Form
-                aria-label="Search"
-                className="form-inline"
-                onSubmit={handleFormSubmit}
-              >
+              <Form className="form-inline" onSubmit={handleFormSubmit}>
                 <Row>
-                  <Col>
+                  <Col xs={1}>
                     <Form.Control
                       type="text"
+                      aria-label="Search"
                       placeholder="Search"
                       className="mr-sm-2"
                       value={searchTerm}
