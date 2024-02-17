@@ -6,6 +6,6 @@ This is a a social news aggregation, web content rating and discussion website. 
 
 # Technologies
 
-ReactJS
-CSS/Bootstrap
+ReactJS,
+CSS/Bootstrap,
 Node.js
