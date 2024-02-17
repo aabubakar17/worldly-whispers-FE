@@ -1,8 +1,11 @@
-# React + Vite
+## Worldly Whispers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://worldlywhisper.netlify.app/
 
-Currently, two official plugins are available:
+This is a a social news aggregation, web content rating and discussion website. Articles are divided into topics, and each article has user-curated ratings from upvotes and downvotes using a custom-built API. Users can also add and delete comments about an article.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Technologies
+
+ReactJS
+CSS/Bootstrap
+Node.js
