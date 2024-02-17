@@ -8,4 +8,5 @@ This is a a social news aggregation, web content rating and discussion website. 
 
 ReactJS,
 CSS/Bootstrap,
+HTML,
 Node.js
